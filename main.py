@@ -41,7 +41,7 @@ def location_handler(update, context):
         total_price = 0
         for cart, val in carts.items():
             product = db.get_product_for_cart(int(cart))
-            text += f"{val}x {product[f'cat_name_{lang_code}']} {product[f'name_{lang_code}']}\n"
+            text += f"{val}x {product[f'cat_name_{lang_code}']}\n"
             total_price += product['price'] * val
 
         text += f"\n{globals.ALL[db_user['lang_id']]}: {total_price} {globals.SUM[db_user['lang_id']]}"
